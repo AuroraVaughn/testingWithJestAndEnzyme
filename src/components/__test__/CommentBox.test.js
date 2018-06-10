@@ -19,27 +19,20 @@ describe('Comment Box', () => {
 
   describe('Comment Box events', () => {
     const text = 'Pretend I typed this.'
-    // beforeEach(() => {
-    //   wrapped.find('textarea')
-    //     .simulate('change', {
-    //       target: { value: text }
-    //     })
-    //   wrapped.update()
-
-    // })
-    it('allows user to enter text in textarea', () => {
-      wrapped.find('textarea').simulate('change', {
-        target: { value: text }
-      })
+    beforeEach(() => {
+      wrapped.find('textarea')
+        .simulate('change', {
+          target: { value: text }
+        })
       wrapped.update()
+
+    })
+    it('allows user to enter text in textarea', () => {
       expect(wrapped.find('textarea').prop('value')).toEqual(text)
 
     })
     it('Clears text when comment is submitted', () => {
-      wrapped.find('textarea').simulate('change', {
-        target: { value: text }
-      })
-      wrapped.update()
+
       wrapped.find('form')
         .simulate('submit')
 
