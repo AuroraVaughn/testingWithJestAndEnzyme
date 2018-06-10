@@ -6,7 +6,8 @@ import { shallow } from 'enzyme';
 
 let wrapped
 beforeEach(() => {
-  wrapped = shallow(<App />)
+  wrapped = shallow(
+    <App />)
 })
 it('shows a comment box', () => {
   expect(wrapped.find(CommentBox).length).toEqual(1)
